@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"> <!-- 新增這一行 -->
+  <title>墨瑞 MORÉ | 從一塊地開始</title>
+  <div class="floating-text">More'住租品牌！</div>
+  <a href="file:///Users/sichi/hhwekh/index.html#location" class="floating-button" target="_blank">了解更多</a>
+  
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+  <header>
+    <div class="logo">墨瑞 MORÉ</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#comfort">More Comfort</a>
+      <a href="#logic">房型邏輯</a>
+      <a href="#investment">雙寓投資</a>
+      <a href="#combo">組合配置</a>
+      <a href="#land">您的基地配置</a>
+    </nav>
+  </header>
+<style>
+  /* 商品總容器：三欄六等分 */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+    font-family: 'Playfair Display', serif;
+  }
+
+  /* 每個商品卡片外觀 */
+  .product-grid .item {
+    background: #ffffff;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .product-grid .item:hover {
+    transform: translateY(-6px);
+  }
+
+  /* 圖片設定 */
+  .product-grid .item img {
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+
+  /* 商品組合名稱 */
+  .combo-name {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #2c2c2c;
+  }
+
+  /* 質感按鈕 */
+  .add-button {
+    padding: 10px 24px;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(to right, #4f4f4f, #3f3f3f);
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .add-button:hover {
+    background: #000000;
+    transform: scale(1.05);
+  }
+</style>
+
+<section class="hero" id="home">
+  <h1>從一塊地 → 配置模組 → 政府合作 → 共益社群</h1>
+  <p class="slogan">療癒土地 × 永續設計 × 公私協力 × 被動收入</p>
+
+  <!-- 右上圖片 -->
+  <img src="./image/more.png" alt="More" class="hero-image">
+</section>
+
+<!-- 第一頁：墨瑞的療癒生活（白字，無黑色背景） -->
+<section id="comfort-intro" class="comfort-slide" style="background-image: url('./image/homepage.png'); height: 120vh;">
+  <div class="content white-text fade-up">
+    <h2>墨瑞的療癒生活</h2>
+    <p>我們打造的不只是住宅，更是一樓可配置咖啡廳、瑜伽教室、茶屋與SPA等療癒空間，為生活注入安定與價值。</p>
+  </div>
+</section>
+
+<!-- 第二頁：療癒空間滾動展示 -->
+<section id="comfort" data-scroll-section>
+  <!-- 滾動圖片 -->
+  <div class="scroll-container">
+    <div class="scroll-track">
+      <img src="./image/coffe.png" alt="Cafe">
+      <img src="./image/yoga.png" alt="Yoga">
+      <img src="./image/spa.png" alt="SPA">
+    </div>
+  </div>
+
+  <!-- IKEA風格白底黑字＋浮出 -->
+  <div class="comfort-description fade-up">
+    <div class="content ikea-text">
+      <h2>咖啡與閱讀</h2>
+      <p>結合書牆與選品，提供療癒的閱讀空間，開放式迎接社區的日常片段。</p>
+    </div>
+    <div class="content ikea-text">
+      <h2>瑜伽與茶道</h2>
+      <p>開放平台設計讓靜心與身體運動共存，在山林邊或都市邊界都能自我安放。</p>
+    </div>
+    <div class="content ikea-text">
+      <h2>SPA 身心舒壓</h2>
+      <p>結合自然材質與光影流動，提供放鬆身體與心靈的沉浸式療癒空間。</p>
+    </div>
+  </div>
+</section>
+
+
+
+  <script src="https://unpkg.com/locomotive-scroll/dist/locomotive-scroll.min.js"></script>
+  <script>
+    const scroll = new LocomotiveScroll({
+      el: document.querySelector("[data-scroll-container]"),
+      smooth: true,
+      lerp: 0.08,
+      multiplier: 1.1
+    });
+  </script>
+  <section class="parallax" id="logic" style="background-image: url('./image/a-a.jpg');">
+
+  <div class="gif-wrapper">
+    <h2 class="section-title">房型邏輯</h2>
+    <div class="section-content">
+      <img src="./image/room2.gif" alt="優化" class="img-large">
+      <img src="./image/room3.gif" alt="優化" class="img-large">
+      <img src="./image/gif room 3333.gif" alt="優化" class="img-small">
+    </div>
+    <p style="margin-top: 1rem;color: #000000;">最優化平面，彈性模組設計，從單人居住到四人共居皆可支援，適應不同族群與使用需求。</p>
+    <div class="section-content2">
+      <img src="./image/room2.png" alt="優化">
+      <img src="./image/room3.png" alt="優化">
+      <img src="./image/ropm333.png" alt="優化">
+    </div>
+  </div>
+</section>
+
+  <section class="parallax" id="investment" style="background-image: url('./image/Image19.png');">
+  <div>
+    <h2 class="section-title white-text">雙寓投資</h2>
+    <div class="section-content white-text">
+      <p>結合自住與出租，打造穩定的被動收入機制，同時符合社宅政策與社會價值。</p>
+    </div>
+  </div>
+</section>
+
+<section class="no-padding" id="embeddedContent"></section>
+<h2 class="section-title">房型組合</h2>
+<p style="margin: 0 auto 1rem auto;">分為樓中樓的類透天Ｃ房型、適合家庭的Ｂ房型、與小人口的Ａ房型。房東與租客的分區</p>
+
+<!-- Flex 容器，左右各一半 -->
+<div class="section-content3-flex" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
+
+  <!-- GIF -->
+  <img src="./image/renterbuyer.gif" alt="優化" style="width: 48%; height: auto; object-fit: contain;">
+
+  <!-- Iframe -->
+  <iframe 
+    src="./indexcopy.html" 
+    style="width: 48%; height: 500px; border: none;"
+    loading="lazy">
+  </iframe>
+
+</div>
+
+
+<section class="parallax" id="combo" style="background-image: url('https://images.unsplash.com/photo-1628470601313-8bb9448b01f2'); padding: 20px 5%;">
+  <div>
+    <h2 class="section-title">組合配置</h2>
+    <p style="margin: 0 auto 1rem auto;">根據您的需求、預算高低、核心客群、建造成本來打造屬於您的「雙寓組合」。</p>
+    <div class="section-content3">
+      <img src="./image/螢幕錄製 2025-06-01 下午10.59.22.gif" alt="優化" style="display: block; margin: 0 auto;">
+    </div>
+  </div>
+</section>
+
+  <section class="parallax" id="land" style= "background-image: url('./image/forest.png');">
+    <div>
+      <h2 class="section-title white-text">您的基地配置</h2>
+      <div class="section-content white-text">
+        <p>輸入您的土地資訊，讓我們幫您快速評估適配模組與合作可能性。發現您土地的淺力 計畫本身政府支持</p>
+      </div>
+    </div>
+  </section> 
+   <section class="pode" 
+   <h2 class="section-title ">您的基地形狀－您的開放空間-您的退縮距離與容積大小-您的房型考量-完成選配</h2>
+       <h2 class="section-title">根據您的基地條件，決定配置方位</h2>
+    <p>L型配置，保留開放空間與建蔽率。</p>
+    <img src="./image/L plan.gif" alt="優化配置圖">
+    
+
+   </section> 
+
+  <!-- 上方圖片＋文字區塊 -->
+<section class="press" style="text-align: center; padding: 4rem 2rem; font-family: 'Playfair Display', serif;">
+  
+
+  <div class="plan-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-top: 2rem;">
+    <div class="plan-item" style="flex: 1 1 300px; max-width: 400px;">
+      <img src="./image/L plan3.gif" alt="優化配置圖" style="width: 100%; height: auto; border-radius: 8px;">
+      <p style="margin-top: 1rem; font-size: 1rem; color: #444; line-height: 1.6;">這是第一個配置圖的詳細說明文字。</p>
+    </div>
+    <div class="plan-item" style="flex: 1 1 300px; max-width: 400px;">
+      <img src="./image/L plan2.gif" alt="優化配置圖" style="width: 100%; height: auto; border-radius: 8px;">
+      <p style="margin-top: 1rem; font-size: 1rem; color: #444; line-height: 1.6;">這是第二個配置圖的詳細說明文字。</p>
+    </div>
+    <div class="plan-item" style="flex: 1 1 300px; max-width: 400px;">
+      <img src="./image/L plan4.gif" alt="優化配置圖" style="width: 100%; height: auto; border-radius: 8px;">
+      <p style="margin-top: 1rem; font-size: 1rem; color: #444; line-height: 1.6;">這是第三個配置圖的詳細說明文字。</p>
+    </div>
+     </div>
+    
+</section>
+
+<!-- 下方「了解更多」按鈕區塊 -->
+
+
+  </script>
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="script.js"></script>
+
+<!--script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // ✅ 初始化 AOS
+    AOS.init({
+      duration: 1000,
+      once: false
+    });
+
+    // ✅ Hero 動畫
+    gsap.to(".text-container span", {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      rotateX: 0,
+      ease: "back.out(1.7)",
+      stagger: 0.12,
+      duration: 1.2
+    });
+
+    // ✅ Hero 滑鼠浮動效果
+    const textContainer = document.getElementById('text');
+    if (textContainer) {
+      document.addEventListener('mousemove', (e) => {
+        const x = (e.clientX / window.innerWidth - 0.5) * 30;
+        const y = (e.clientY / window.innerHeight - 0.5) * 30;
+        textContainer.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
+      });
+    }
+
+    // ✅ Hero 垂直線隨捲動延伸
+    const line = document.getElementById('line');
+    if (line) {
+      window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+        line.style.height = 200 + scrollY * 0.5 + 'px';
+      });
+    }
+
+    // ✅ 商品產生器
+    const products = [
+      { name: 'A+A', price: 100, image: './image/a-a.jpg' },
+      { name: 'B+A', price: 110, image: './image/b-a.png' },
+      { name: 'C+A', price: 120, image: './image/c-a.jpg' },
+      { name: 'B+B', price: 130, image: './image/b-b.jpg' },
+      { name: 'C+B', price: 140, image: './image/c-b.jpg' },
+      { name: 'C+C', price: 150, image: './image/c-c.jpg' }
+    ];
+
+    const productGrid = document.getElementById('productGrid');
+    if (productGrid) {
+      products.forEach(product => {
+        const itemDiv = document.createElement('div');
+        itemDiv.className = 'item';
+        itemDiv.innerHTML = `
+          <img src="${product.image}" alt="${product.name}" style="width: 100%; max-width: 200px; border-radius: 8px; margin-bottom: 10px;">
+          <div class="combo-name">${product.name}</div>
+          <button class="add-button" onclick="addToCart('${product.name}', ${product.price})">Add to list</button>
+        `;
+        productGrid.appendChild(itemDiv);
+      });
+    }
+  });
+  
+</script-->
+</body>
+</html>
