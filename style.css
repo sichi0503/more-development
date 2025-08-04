@@ -1,0 +1,428 @@
+
+    * {
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+    }
+    body {
+      margin: 0;
+      
+      font-family: 'Noto Sans', 'Segoe UI', 'Helvetica Neue', sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.8;
+      letter-spacing: 0.02em;
+      background-color: rgb(255, 255, 255);
+      color: #333;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: rgba(255,255,255,0.96);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      padding: 1.2rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav a {
+      margin: 0 1.2rem;
+      text-decoration: none;
+      color: #444;
+      font-weight: 400;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #606e6e;
+    }
+    .logo {
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
+      color: #0c0c0c;
+    }
+    /* 先針對所有 section 設最小高度（你的原本設定） */
+section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 6rem 2rem;
+  position: relative;
+}
+
+/* 再給需要縮減留白的 section 單獨縮小 */
+.no-padding {
+  min-height: auto;
+  padding: 0;
+}
+.white-text {
+  color: #fff;
+}
+.section-content3-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.section-content3-flex img,
+.section-content3-flex iframe {
+  width: 48%;
+  height: auto;
+}
+
+.section-content3-flex iframe {
+  height: 200px; /* ✅ 自行調整需要的高度 */
+}
+
+   
+    .hero {
+      background-image: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url('https://images.unsplash.com/photo-1617104678646-7c6df04c3983');
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+    }
+
+   .hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  font-weight: 500;
+  color: #111111;
+
+}
+
+
+    .hero p.slogan {
+      font-size: 1.1rem;
+      color: #555;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      margin-top: 0;
+    }
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #191919;
+      font-weight: 500;
+    }
+    .section-content {
+      max-width: 700px;
+      margin: 0 auto;
+      color: #5b5b5b;
+    }
+   .parallax {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  height: 150vh; /* 由原本的 100vh 增加到 150vh，區塊變長 */
+}
+    
+    .comfort-slide {
+      height: 120vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem;
+      overflow: hidden;
+      border-top: 1px solid #ddd;
+      background-color: #fafafa;
+    }
+    .comfort-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      filter: brightness(0.85);
+    }
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, rgba(255,255,255,0.6), transparent);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: 1;
+    }
+    .comfort-slide:hover .overlay {
+      opacity: 1;
+    }
+    .caption {
+      position: relative;
+      z-index: 2;
+      background: rgba(255,255,255,0.85);
+      padding: 2rem 2.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      text-align: left;
+      max-width: 680px;
+    }
+    .caption .title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #006aa7;
+      margin-bottom: 0.8rem;
+    }
+    .caption p {
+      font-size: 1rem;
+      color: #444;
+      margin: 0;
+    }
+  .section-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.section-content img {
+  width: 30%;
+  max-width: 300px;
+  height: auto;
+  transition: transform 0.3s ease;
+  object-fit: contain; /* ✅ 保持比例並完整顯示，不裁切 */
+}
+
+.img-large {
+  width: 80%;  /* 或 50% 之類，視需求 */
+  height: auto;
+}
+.img-small {
+  width: 120%;
+  height: auto;
+}
+
+.section-content img:hover {
+  transform: scale(1.05);
+}
+.gif-wrapper {
+  background: #fff; /* ✅ 白色背景 */
+  padding: 4rem 2rem; /* ✅ 調整內距，讓內容「拉長」 */
+  margin: 3rem auto; /* ✅ 與上下段距離 */
+  max-width: 1700px; /* ✅ 可視需求調整 */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); /* ✅ 輕微陰影層次 */
+  
+}
+ .section-content2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+
+.section-content2 img {
+  width: 25%;  /* 由原本 30% 改為 25%，縮小 */
+  max-width: 250px; /* 同時縮小最大寬度 */
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.section-content2 img:hover {
+  transform: scale(1.05);
+}
+.hero-image {
+  position: absolute;
+  top: 10%;
+  right: 2rem;
+  width: 500px;
+  height: auto;
+  z-index: 0; /* ✅ 讓圖片在下層 */
+
+  /* 單次淡入動畫 */
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards;
+  animation-delay: 0.3s;
+}
+.hero h1,
+.hero p {
+  position: relative; /* 讓 z-index 生效 */
+  z-index: 1; /* 高於圖片 */
+}
+.section-content3 img {
+  width: 2600px;     /* ✅ 直接指定一個較大寬度 */
+  max-width: 95%;   /* ✅ 響應式，避免在小螢幕溢出 */
+  height: auto;     /* ✅ 保持比例 */
+  margin-top: 1rem; /* ✅ 與文字之間留空間 */
+}
+#combo {
+  position: relative;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+#combo .section-title {
+  color: #000000; /* ✅ 黑色標題 */
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+#combo p {
+  color: #5b5b5b; /* ✅ 灰色段落文字 */
+  max-width: 600px;
+  margin: 0 auto 0rem auto; /* ✅ 置中並與 GIF 拉開距離 */
+}
+
+.section-content3 img {       /* 在小螢幕時圖片自動縮放佔滿父容器 */
+  max-width: 900px;     /* ✅ 圖片最大可放大到 900px */
+  height: 550px;        /* ✅ 高度固定，形成一致的區塊高度 */
+    /* ✅ 等比例放大並裁切填滿容器（不變形） */
+  display: block;       /* ✅ 置中時使用，去除行內元素影響 */
+  margin: 0 auto;       /* ✅ 水平置中 */
+}
+.floating-button {
+  position: fixed;
+  top: 50%;
+  right: 20px; /* 靠右側 20px */
+  transform: translateY(-50%); /* 垂直置中 */
+  background-color: #111;
+  color: #fff;
+  padding: 0.75rem 1rem;
+  border-radius: 50px; /* 圓角 */
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  z-index: 999; /* 不被其他元素蓋住 */
+}
+
+.floating-button:hover {
+  background-color: #333;
+  transform: translateY(-50%) scale(1.05);
+}
+.floating-text {
+  position: fixed;
+  top: 50%;
+  right: 90px; /* 比按鈕多一點距離 */
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: #444;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  z-index: 998;
+}
+
+/* ✅ 最後一夜 */
+
+.press {
+  text-align: center;
+  padding: 4rem 2rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.plan-container {
+  display: flex;
+  flex-wrap: wrap; /* ✅ 畫面小時自動換行 */
+  justify-content: center;
+  gap: 2rem; /* 圖片間距 */
+  margin-top: 2rem;
+}
+
+.plan-item {
+  flex: 1 1 300px; /* ✅ 寬度自適應，最小 300px */
+  max-width: 400px;
+}
+
+.plan-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.plan-item p {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* 滾動圖片動畫 */
+.scroll-container {
+  width: 100%;
+  overflow: hidden;
+  background: #fff;
+  margin-bottom: 2rem;
+}
+
+.scroll-track {
+  display: flex;
+  width: max-content;
+  animation: scroll-left 30s linear infinite;
+}
+
+.scroll-track img {
+  width: 600px;
+  height: 400px;
+  object-fit: cover;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+/* 首頁大圖樣式 */
+.comfort-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.white-text {
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* IKEA風格：白底黑字 */
+.ikea-text {
+  background: #ffffff;
+  color: #111111;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 800px;
+  border-radius: 16px;
+  font-family: 'Arial', sans-serif;
+}
+
+/* 浮出動畫 */
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 1s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 滾動動畫 */
+@keyframes scroll-left {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }

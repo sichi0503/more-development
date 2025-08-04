@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>平面圖互動點位</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Noto Sans', sans-serif;
+    }
+    .floorplan-container {
+      position: relative;
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .floorplan-container img {
+      width: 100%;
+      display: block;
+    }
+    .dot {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background-color: rgb(29, 59, 105);
+      cursor: pointer;
+      border: 2px solid #fff;
+      box-shadow: 0 0 4px rgba(0,0,0,0.3);
+    }
+    .popup {
+      position: fixed; /* 改為固定定位 */
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #ffffff;
+      padding: 1rem 1.2rem;
+      border-radius: 9px;
+      width: 260px;
+      display: none;
+      z-index: 20;
+      border: 4px solid #545454;
+      font-family: 'Noto Sans', sans-serif;
+      transition: all 0.3s ease;
+    }
+    .popup img {
+      width: 100%;
+      border-radius: 3px;
+      margin-bottom: 0.75rem;
+    }
+    .popup h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.2rem;
+      color: #131314;
+      font-weight: 600;
+    }
+    .popup p {
+      margin: 0;
+      font-size: 0.92rem;
+      color: #444;
+      line-height: 1.5;
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background-color: #000;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: bold;
+      text-align: center;
+      line-height: 24px;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+    .close-btn:hover {
+      background-color: #333;
+      transform: scale(1.05);
+    }
+    .overlay {
+      position: fixed; /* 改為固定，覆蓋整個視窗 */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.6);
+      display: none;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+  <div class="floorplan-container">
+    <img src="./image/plan.png" alt="平面圖"/>
+
+    <!-- 點點 -->
+    <div class="dot" style="top: 20%; left: 30%;" onclick="openPopup(0)"></div>
+    <div class="dot" style="top: 40%; left: 50%;" onclick="openPopup(1)"></div>
+    <div class="dot" style="top: 55%; left: 45%;" onclick="openPopup(2)"></div>
+    <div class="dot" style="top: 70%; left: 70%;" onclick="openPopup(3)"></div>
+    <div class="dot" style="top: 30%; left: 20%;" onclick="openPopup(4)"></div>
+    <div class="dot" style="top: 65%; left: 80%;" onclick="openPopup(5)"></div>
+
+    <!-- 遮罩 -->
+    <div id="overlay" class="overlay" onclick="closePopup()"></div>
+
+    <!-- 彈窗 -->
+    <div id="popup" class="popup">
+      <span class="close-btn" id="closeBtn">&times;</span>
+      <img id="popupImg" src="" alt="詳情圖"/>
+      <h3 id="popupTitle">標題</h3>
+      <p id="popupText">這裡是小字說明</p>
+    </div>
+  </div>
+
+  <script>
+    const popup = document.getElementById('popup');
+    const popupImg = document.getElementById('popupImg');
+    const popupTitle = document.getElementById('popupTitle');
+    const popupText = document.getElementById('popupText');
+    const closeBtn = document.getElementById('closeBtn');
+    const overlay = document.getElementById('overlay');
+
+    const data = [
+      { img: './image/c-b.jpg', title: 'C+B', text: 'High end family+family' },
+      { img: './image/b-a.png', title: 'B+A', text: 'family+couple' },
+      { img: './image/c-a.jpg', title: 'C+A', text: 'High end family+couple' },
+      { img: './image/a-a.jpg', title: 'A+A', text: 'couple+couple' },
+      { img: './image/c-c.jpg', title: 'C+C', text: 'High end family+High end family' },
+      { img: './image/b-b.jpg', title: 'B+B', text: 'family+family' },
+    ];
+
+    function openPopup(index) {
+      popupImg.src = data[index].img;
+      popupTitle.textContent = data[index].title;
+      popupText.textContent = data[index].text;
+
+      popup.style.display = 'block';
+      overlay.style.display = 'block';
+    }
+
+    function closePopup() {
+      popup.style.display = 'none';
+      overlay.style.display = 'none';
+    }
+
+    closeBtn.addEventListener('click', closePopup);
+  </script>
+</body>
+</html>
